@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
-import Like from "./components/Like";
-import NavBar from "./components/NavBar";
-import Cart from "./components/Cart";
-import ExpandableText from "./components/ExpandableText";
+import Alert from "./components-practise/Alert";
+import Button from "./components-practise/Button";
+import Like from "./components-practise/Like";
+import NavBar from "./components-practise/NavBar";
+import Cart from "./components-practise/Cart";
+import ExpandableText from "./components-practise/ExpandableText";
 
 const App = () => {
   const [cartItems, setCartItem] = useState(["Product 1", "Product 2"]);
