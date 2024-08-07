@@ -1,5 +1,6 @@
 // import { categories } from "./expense-tracker/categories";
 import {
+  Box,
   Button,
   ButtonGroup,
   Grid,
@@ -15,6 +16,7 @@ import { Genres } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 interface User {
   id: number;
@@ -52,16 +54,19 @@ const App = () => {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-            <PlatformSelector
-              selectedPlatform={selectedPlatform}
-              onSelectPlatform={(platform) => setSelectedPlatform(platform)}
-            />
-            <SortSelector
-              sortOrder={sortOrder}
-              onSelectSortOrder={(sortOrder) => setSortOrder(sortOrder)}
-            />
-          </HStack>
+          <Box paddingLeft={2}>
+            <GameHeading genre={selectedGenre} platform={selectedPlatform} />
+            <HStack spacing={5} marginBottom={5}>
+              <PlatformSelector
+                selectedPlatform={selectedPlatform}
+                onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+              />
+              <SortSelector
+                sortOrder={sortOrder}
+                onSelectSortOrder={(sortOrder) => setSortOrder(sortOrder)}
+              />
+            </HStack>
+          </Box>
           <GameGrid
             selectedGenre={selectedGenre}
             selectedPlatform={selectedPlatform}
