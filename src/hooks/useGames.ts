@@ -13,6 +13,7 @@ export interface Game {
     background_image: string;
     parent_platforms: { platform: Platform }[]
     metacritic: number
+    rating_top: number
 }
 
 const useGames = (selectedGenre: Genres | null, selectedPlatform: Platform | null, sortOrder: string, searchText: string) =>
