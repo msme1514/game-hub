@@ -17,17 +17,17 @@ const GameGrid = ({
   sortOrder,
   searchText,
 }: Props) => {
-  const { data, error, isLoading } = useGames(
+  const { data, error, isLoading } = useGames({
     selectedGenre,
     selectedPlatform,
     sortOrder,
-    searchText
-  );
+    searchText,
+  });
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
-      {error && <Text>{error}</Text>}
+      {error && <Text>{error.message}</Text>}
       <SimpleGrid
         columns={{
           sm: 1,
@@ -39,7 +39,7 @@ const GameGrid = ({
       >
         {isLoading &&
           skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
-        {data.map((game) => (
+        {data?.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>
