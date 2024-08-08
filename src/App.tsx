@@ -66,13 +66,14 @@ const App = () => {
                 onSelectSortOrder={(sortOrder) => setSortOrder(sortOrder)}
               />
             </HStack>
+
+            <GameGrid
+              selectedGenre={selectedGenre}
+              selectedPlatform={selectedPlatform}
+              sortOrder={sortOrder}
+              searchText={searchText}
+            />
           </Box>
-          <GameGrid
-            selectedGenre={selectedGenre}
-            selectedPlatform={selectedPlatform}
-            sortOrder={sortOrder}
-            searchText={searchText}
-          />
         </GridItem>
       </Grid>
     </>
