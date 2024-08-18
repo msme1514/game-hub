@@ -18,18 +18,7 @@ import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
-interface User {
-  id: number;
-  name: string;
-}
-
 const App = () => {
-  const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
-  const [sortOrder, setSortOrder] = useState("");
-  const [searchText, setSearchText] = useState("");
   return (
     <>
       <Grid
@@ -43,36 +32,22 @@ const App = () => {
         }}
       >
         <GridItem area="nav">
-          <NavBar onSearch={(searchText) => setSearchText(searchText)} />
+          <NavBar />
         </GridItem>
         <Show above="lg">
           <GridItem area="aside">
-            <GenreList
-              selectedGenre={selectedGenre}
-              onSelectGenre={(genre) => setSelectedGenre(genre)}
-            />
+            <GenreList />
           </GridItem>
         </Show>
         <GridItem area="main">
           <Box paddingLeft={2}>
-            <GameHeading genre={selectedGenre} platform={selectedPlatform} />
+            <GameHeading />
             <HStack spacing={5} marginBottom={5}>
-              <PlatformSelector
-                selectedPlatform={selectedPlatform}
-                onSelectPlatform={(platform) => setSelectedPlatform(platform)}
-              />
-              <SortSelector
-                sortOrder={sortOrder}
-                onSelectSortOrder={(sortOrder) => setSortOrder(sortOrder)}
-              />
+              <PlatformSelector />
+              <SortSelector />
             </HStack>
 
-            <GameGrid
-              selectedGenre={selectedGenre}
-              selectedPlatform={selectedPlatform}
-              sortOrder={sortOrder}
-              searchText={searchText}
-            />
+            <GameGrid />
           </Box>
         </GridItem>
       </Grid>
