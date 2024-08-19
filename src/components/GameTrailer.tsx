@@ -10,13 +10,10 @@ const GameTrailer = ({ gameId }: Props) => {
   if (isLoading) return null;
   if (error) throw error;
 
-  return (
-    <video
-      src={data?.results[0]?.data[480]}
-      poster={data?.results[0]?.preview}
-      controls
-    />
-  );
+  const first = data?.results[0];
+  return first ? (
+    <video src={first.data[480]} poster={first.preview} controls />
+  ) : null;
 };
 
 export default GameTrailer;
