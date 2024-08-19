@@ -5,6 +5,7 @@ import CriticScore from "./CriticScore";
 import DefinationItem from "./DefinationItem";
 import ExpandableText from "./ExpandableText";
 import GameAttributes from "./GameAttributes";
+import GameScreenshots from "./GameScreenshots";
 import GameTrailer from "./GameTrailer";
 
 const GameDetailPage = () => {
@@ -20,6 +21,7 @@ const GameDetailPage = () => {
       <ExpandableText>{game.description_raw}</ExpandableText>
       <GameAttributes game={game} />
       <GameTrailer gameId={game.id} />
+      <GameScreenshots gameId={game.id} />
     </>
   );
 };
