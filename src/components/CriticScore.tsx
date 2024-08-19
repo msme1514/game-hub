@@ -1,5 +1,5 @@
 import React from "react";
-import { Game } from "../hooks/useGames";
+import { Game } from "../entities/Game";
 import { Badge, Text } from "@chakra-ui/react";
 
 interface Props {

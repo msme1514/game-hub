@@ -3,15 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import APIClient from "../services/api-client";
 import { FetchResponse } from "../services/api-client";
+import { Genres } from "../entities/Genres";
 
 const apiClient = new APIClient<Genres>('/genres');
-
-export interface Genres {
-    id: number
-    name: string
-    slug: string
-    image_background: string
-}
 
 const useGenres = () =>
     useQuery({
